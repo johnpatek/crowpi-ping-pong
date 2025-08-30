@@ -45,17 +45,17 @@ def print_message(device, msg, reverse=False):
                 i += 1
 
 def client_send(sock, device, msg):
-   print_message(device, msg, reverse=False)
+   print_message(device, msg, reverse=True)
    sock.send(msg.encode())
 
 def client_recv(sock, device):
    msg = sock.recv(1024).decode()
-   print_message(device, msg, reverse=True)
+   print_message(device, msg, reverse=False)
 
 def server_send(sock, device, msg):
-   print_message(device, msg, reverse=True)
+   print_message(device, msg, reverse=False)
    sock.send(msg.encode())
 
 def server_recv(sock, device):
    msg = sock.recv(1024).decode()
-   print_message(device, msg, reverse=False)
+   print_message(device, msg, reverse=True)
