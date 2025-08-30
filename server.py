@@ -9,13 +9,8 @@ s.bind(('0.0.0.0', 12345))
 device = create_device()
 active = True
 
-
-def sigcb(sig, frame):
-    sock.close()
-    active = False
-
 while active:
-    client_send(sock, device, 'ping)
-    client_recv(sock, device)
+    server_recv(sock, device)
+    server_send(sock, device, 'pong')
 
 
