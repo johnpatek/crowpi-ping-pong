@@ -5,12 +5,12 @@ import sys
 
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.bind(('0.0.0.0', 12345))
+sock.bind(('0.0.0.0', 12345))
+sock.listen(100)
+conn = sock.accept()[0]
 device = create_device()
 active = True
 
 while active:
-    server_recv(sock, device)
-    server_send(sock, device, 'pong')
-
-
+    server_recv(conn, device)
+    server_send(conn, device, 'pong')
